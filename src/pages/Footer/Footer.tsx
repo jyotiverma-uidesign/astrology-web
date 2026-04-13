@@ -54,7 +54,7 @@ export default function Footer() {
           <div>
             <h4 className="font-heading font-semibold mb-3">Contact</h4>
             <div className="space-y-2 text-sm opacity-70">
-              <p>Tulikanewslive@gmail.com</p>
+              <p>tulikanewslive@gmail.com</p>
               <p>+918135802073</p>
               <p>Delhi • Madhya Pradesh • Assam</p>
 

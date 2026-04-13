@@ -98,7 +98,7 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: '100vh', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden fixed left-0 right-0 top-16 bg-card border-t border-primary/10 overflow-y-auto"
+            className="lg:hidden fixed left-0 right-0 top-16 bg-white text-black border-t border-gray-200 overflow-y-auto"
           >
             <div className="px-4 py-4 flex flex-col gap-2">
 
