@@ -4,7 +4,6 @@ import BrandPositioningSection from '../components/home/BrandPositioningSection'
 import SignatureApproachSection from '../components/home/SignatureApproachSection';
 import OfferingsSection from '../components/home/OfferingsSection';
 import PricingSection from '../components/home/PricingSection';
-import AboutPreviewSection from '../components/home/AboutPreviewSection';
 
 import TestimonialsSection from './../components/home/TestimonialsSection';
 import FAQSection from '../components/home/FAQSection';
