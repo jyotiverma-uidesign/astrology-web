@@ -49,7 +49,7 @@ export default function CrystalsPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {crystalBenefits.map((b, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="flex flex-col items-center p-6 rounded-2xl bg-background border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all text-center"
+                className="flex flex-col items-center p-6 rounded-2xl bg-[#4890b7] text-white border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all text-center"
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
                   <b.icon className="w-7 h-7 text-primary" />
@@ -79,9 +79,9 @@ export default function CrystalsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-card">
+      <section className="py-5 bg-card">
         <div className="container mx-auto px-4 text-center">
-          <Button size="lg" className="gradient-bg text-primary-foreground glow-gold" onClick={handleContact}>
+          <Button size="lg" className="gradient-bg text-white glow-gold" onClick={handleContact}>
             <MessageCircle className="w-5 h-5 mr-2" />
             {language === 'en' ? 'Explore Crystal Guidance' : 'क्रिस्टल मार्गदर्शन देखें'}
           </Button>

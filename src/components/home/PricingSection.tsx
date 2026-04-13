@@ -7,7 +7,7 @@ import { useStore } from '../../store/useStore';
 const plans = [
   {
     en: 'Basic Numerology Course', hi: 'बुनियादी अंकशास्त्र कोर्स',
-    price: '₹5,00', duration: '1 Month',
+    price: '₹5,000', duration: '1 Month',
     descEn: 'A beginner-friendly course designed to help you understand the fundamentals of numerology, personality patterns, core numbers, Lo Shu basics and practical interpretation.',
     descHi: 'एक शुरुआती-अनुकूल कोर्स जो अंकशास्त्र की मूल बातें, व्यक्तित्व पैटर्न, कोर नंबर, लो शू बेसिक्स और व्यावहारिक व्याख्या को समझने में मदद करता है।',
     cta: { en: 'Enroll Now', hi: 'अभी नामांकन करें' },
@@ -16,7 +16,7 @@ const plans = [
   },
   {
     en: 'Premium Numerology Course', hi: 'प्रीमियम अंकशास्त्र कोर्स',
-    price: '₹15,00', duration: '3 Months',
+    price: '₹15,000', duration: '3 Months',
     descEn: 'A deeper and more guided learning experience covering numerology in greater depth along with Vedic understanding, Lagna-based observation and stronger interpretation clarity.',
     descHi: 'अंकशास्त्र को अधिक गहराई से कवर करने वाला एक गहरा और अधिक मार्गदर्शित शिक्षण अनुभव, वैदिक समझ, लग्न-आधारित अवलोकन और मजबूत व्याख्या स्पष्टता के साथ।',
     cta: { en: 'Join Premium Course', hi: 'प्रीमियम कोर्स में शामिल हों' },
@@ -25,7 +25,7 @@ const plans = [
   },
   {
     en: 'Tarot & Crystal Course', hi: 'टैरो और क्रिस्टल कोर्स',
-    price: '₹10,00', duration: '2 Months',
+    price: '₹10,000', duration: '2 Months',
     descEn: 'A structured course to help you understand tarot basics, card energy, intuitive reading approach, crystal support and practical spiritual application.',
     descHi: 'टैरो मूल बातें, कार्ड ऊर्जा, सहज पठन दृष्टिकोण, क्रिस्टल सहायता और व्यावहारिक आध्यात्मिक अनुप्रयोग को समझने के लिए एक संरचित कोर्स।',
     cta: { en: 'Join Tarot & Crystal Course', hi: 'टैरो और क्रिस्टल कोर्स में शामिल हों' },
@@ -77,7 +77,7 @@ export default function PricingSection() {
             >
               {plan.featured && (
                 <div className="absolute -top-3 left-8">
-                  <span className="px-4 py-1 rounded-full gradient-bg text-primary-foreground text-xs font-semibold flex items-center gap-1">
+                  <span className="px-4 py-1 rounded-full gradient-bg text-yellow-400 text-xs font-semibold flex items-center gap-1">
                     <Star className="w-3 h-3" /> {language === 'en' ? 'Most Popular' : 'सबसे लोकप्रिय'}
                   </span>
                 </div>
@@ -93,7 +93,7 @@ export default function PricingSection() {
                 {language === 'en' ? plan.descEn : plan.descHi}
               </p>
               <Button
-                className={`w-full group ${plan.featured ? 'gradient-bg text-primary-foreground glow-gold' : ''}`}
+                className={`w-full group ${plan.featured ? 'gradient-bg text-white glow-gold' : ''}`}
                 variant={plan.featured ? 'default' : 'outline'}
                 onClick={() => navigate(plan.path)}
               >

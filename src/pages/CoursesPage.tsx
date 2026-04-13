@@ -94,7 +94,7 @@ export default function CoursesPage() {
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
                 <div>
                   {course.featured && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full gradient-bg text-primary-foreground text-xs font-semibold mb-3">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full gradient-bg text-yellow-400 text-xs font-semibold mb-3">
                       <Star className="w-3 h-3" /> Most Popular
                     </span>
                   )}
@@ -130,7 +130,7 @@ export default function CoursesPage() {
                 </div>
                 <Button
                   size="lg"
-                  className={`group ${course.featured ? 'gradient-bg text-primary-foreground glow-gold' : ''}`}
+                  className={`group ${course.featured ? 'gradient-bg text-white glow-gold' : ''}`}
                   variant={course.featured ? 'default' : 'outline'}
                   onClick={() => handleEnroll(course.en)}
                 >

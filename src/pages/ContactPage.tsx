@@ -146,7 +146,7 @@ Message: ${form.message}`
                 <Textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required rows={4} className="mt-1" />
               </div>
               <div className="flex gap-3">
-                <Button type="submit" className="flex-1 gradient-bg text-primary-foreground">
+                <Button type="submit" className="flex-1 gradient-bg text-white">
                   <Send className="w-4 h-4 mr-2" /> {language === 'en' ? 'Send Message' : 'संदेश भेजें'}
                 </Button>
                 <Button type="button" variant="outline" className="border-primary/30" onClick={() => {

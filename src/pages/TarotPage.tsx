@@ -62,7 +62,7 @@ const spreadInfo = {
 /* ─────────────────────── CARD BACK SVG ─────────────────────── */
 function CardBackPattern() {
   return (
-    <svg viewBox="0 0 200 300" className="w-full h-full">
+    <svg viewBox="0 0 200 300" className="w-full h-full  m ">
       <defs>
         <radialGradient id="cbg" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="hsl(270,45%,40%)" stopOpacity="0.15" />
@@ -98,7 +98,7 @@ function SectionHeader({ subtitle, title, description }: { subtitle: string; tit
     >
       <span className="text-sm tracking-[0.3em] uppercase font-body text-mystic-light">{subtitle}</span>
       <h2 className="text-3xl md:text-5xl font-heading mt-3 mb-4 gradient-text leading-tight">{title}</h2>
-      {description && <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">{description}</p>}
+      {description && <p className="text-muted-foreground font-body text-lg w-full">{description}</p>}
       <div className="w-20 h-px bg-linear-to-r from-transparent via-gold to-transparent mx-auto mt-6" />
     </motion.div>
   );
@@ -163,7 +163,7 @@ export default function Index() {
       {/* ═══════════ SECTION 1: HERO ═══════════ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden section-warm">
         {/* Floating decorative elements */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none z-0">
           {[
             { x: '10%', y: '20%', delay: 0 }, { x: '85%', y: '15%', delay: 0.5 },
             { x: '75%', y: '70%', delay: 1 }, { x: '15%', y: '75%', delay: 1.5 },
@@ -195,7 +195,7 @@ export default function Index() {
           />
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        <div className="relative z-20 text-center px-4 w-full">
           {/* Mystic eye orb */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -252,7 +252,7 @@ export default function Index() {
 
       {/* ═══════════ SECTION 2: HOW IT WORKS ═══════════ */}
       <section className="py-2 section-mystic">
-        <div className="container mx-auto px-4 ">
+        <div className="w-full px-4 ">
           <SectionHeader  subtitle='' title="How It Works" description="A sacred four-step journey from intention to illumination" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-8 max-w-5xl mx-auto">
             {HOW_IT_WORKS.map((item, i) => (
@@ -284,7 +284,7 @@ export default function Index() {
 
       {/* ═══════════ SECTION 3: INTERACTIVE READING ═══════════ */}
       <section id="reading" ref={readingRef} className="py-5 section-warm">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <SectionHeader subtitle=''
            
             title="Interactive Tarot Reading"
@@ -292,7 +292,7 @@ export default function Index() {
           />
 
           {!showReading ? (
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="w-full">
               {/* Question */}
               <div className="mb-8">
                 <label className="block text-sm text-mystic-light mb-2 font-body tracking-wide">Focus your intention (optional)</label>
@@ -301,7 +301,7 @@ export default function Index() {
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   placeholder="What does the universe want me to know?"
-                  className="w-full bg-[#] mystic-border rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 font-body text-lg"
+                  className="w-full bg-blue-50 mystic-border rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 font-body text-lg"
                 />
               </div>
 
@@ -458,7 +458,7 @@ export default function Index() {
 
       {/* ═══════════ SECTION 4: CARD GALLERY ═══════════ */}
       <section className="py-2 section-mystic">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <SectionHeader  subtitle='' title="Major Arcana Cards" description="Explore the 20 cards of the Major Arcana — each carrying profound cosmic significance" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 b max-w-5xl mx-auto">
             {MAJOR_ARCANA.map((card, i) => {
@@ -487,13 +487,13 @@ export default function Index() {
 
       {/* ═══════════ SECTION 5: DAILY CARD ═══════════ */}
       <section className="py-5 section-rose">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <SectionHeader subtitle=''  title="Today's Card" description={`${today.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}`} />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
+            className="w-full"
           >
             <div className="relative p-8 md:p-12 rounded-3xl bg-card mystic-border glow-gold overflow-hidden">
               {/* Background decoration */}
@@ -522,7 +522,7 @@ export default function Index() {
 
       {/* ═══════════ SECTION 6: TESTIMONIALS ═══════════ */}
       <section className="py-5 section-warm">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <SectionHeader  subtitle='' title="What Seekers Say" description="Real experiences from those who walked the mystical path" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {TESTIMONIALS.map((t, i) => (
@@ -557,12 +557,12 @@ export default function Index() {
 
       {/* ═══════════ SECTION 7: FOOTER ═══════════ */}
       <footer className="py-16 bg-linear-to-b from-card to-background">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <div className="text-center">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Eye className="w-6 h-6 text-primary" />
-                <h3 className="text-2xl font-heading gradient-text">Mystic Tarot</h3>
+                <h3 className="text-2xl font-heading font-bold gradient-text">Mystic Tarot</h3>
               </div>
               <p className="text-muted-foreground font-body text-base max-w-md mx-auto mb-6 leading-relaxed">
                 The cards are a mirror — they reflect the truths you already hold within. Use them wisely, with open heart and grounded spirit.

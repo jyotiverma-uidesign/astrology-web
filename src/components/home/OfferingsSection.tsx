@@ -40,7 +40,7 @@ export default function OfferingsSection() {
   const { language } = useStore();
 
   return (
-    <section className="py-24 bg-card">
+    <section className="py-5 bg-card">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -53,7 +53,7 @@ export default function OfferingsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-8 max-w-4xl mx-auto">
           {offerings.map((item, i) => (
             <motion.div
               key={i}
@@ -61,7 +61,7 @@ export default function OfferingsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative bg-background rounded-2xl p-8 border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="group relative bg-[#246E96] text-white rounded-2xl  p-8 border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 cursor-pointer"
               onClick={() => navigate(item.path)}
             >
               <div className="flex items-start gap-5">

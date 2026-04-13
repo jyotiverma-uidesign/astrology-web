@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Globe, BookOpen } from 'lucide-react';
@@ -13,7 +13,6 @@ const navLinks = [
   { path: '/consultations', labelEn: 'Consultations', labelHi: 'परामर्श' },
   { path: '/tarot', labelEn: 'Tarot', labelHi: 'टैरो' },
   { path: '/crystals', labelEn: 'Crystals', labelHi: 'क्रिस्टल' },
-
   { path: '/contact', labelEn: 'Contact', labelHi: 'संपर्क' },
 ];
 
@@ -22,82 +21,119 @@ export default function Navbar() {
   const { language, setLanguage } = useStore();
   const navigate = useNavigate();
 
+  // 🔒 Prevent background scroll when menu open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
+
   return (
-    <nav className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b border-primary/10 shadow-sm">
+  <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm ">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 group">
+
+          {/* LOGO */}
+          <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="Astro Tulika" className="w-10 h-10 rounded-full object-cover" />
-            <span className="font-heading text-xl font-bold text-foreground">
-              Astro<span className="gradient-text">Tulika</span>
+            <span className="font-bold text-xl">
+              Astro<span className="text-primary">Tulika</span>
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-1">
+          {/* DESKTOP MENU */}
+          <div className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/5 transition-colors"
+                className="px-3 py-2 text-sm rounded-md text-muted-foreground hover:text-foreground hover:bg-primary/5"
               >
                 {language === 'en' ? link.labelEn : link.labelHi}
               </Link>
             ))}
           </div>
 
+          {/* RIGHT ACTIONS (DESKTOP) */}
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}
-              className="flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              className="px-2 py-1 text-xs flex items-center gap-1 rounded-md hover:bg-muted"
             >
-              <Globe className="w-3.5 h-3.5" />
+              <Globe className="w-4 h-4" />
               {language === 'en' ? 'हिं' : 'EN'}
             </button>
-            <Button size="sm" variant="outline" className="border-primary/30" onClick={() => navigate('/consultations')}>
+
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => navigate('/consultations')}
+            >
               <MessageCircle className="w-4 h-4 mr-1" />
-              {language === 'en' ? 'Book Guidance' : 'मार्गदर्शन'}
+              {language === 'en' ? 'Book' : 'मार्गदर्शन'}
             </Button>
-            <Button size="sm" className="gradient-bg text-primary-foreground glow-gold" onClick={() => navigate('/courses')}>
+
+            <Button
+              size="sm"
+              className="gradient-bg text-white"
+              onClick={() => navigate('/courses')}
+            >
               <BookOpen className="w-4 h-4 mr-1" />
-              {language === 'en' ? 'Join Course' : 'कोर्स जॉइन'}
+              {language === 'en' ? 'Join courses' : 'कोर्स'}
             </Button>
           </div>
 
-          <button className="lg:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {/* MOBILE BUTTON */}
+          <button
+            className="lg:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: '100vh', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden bg-card border-t border-primary/10"
+            className="lg:hidden fixed left-0 right-0 top-16 bg-card border-t border-primary/10 overflow-y-auto"
           >
-            <div className="px-4 py-3 space-y-1">
+            <div className="px-4 py-4 flex flex-col gap-2">
+
+              {/* LINKS */}
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/5 transition-colors"
+                  className="py-3 px-4 rounded-lg text-sm font-medium hover:bg-primary/5"
                 >
                   {language === 'en' ? link.labelEn : link.labelHi}
                 </Link>
               ))}
-              <div className="flex gap-2 pt-2">
-                <Button size="sm" className="flex-1 gradient-bg text-primary-foreground" onClick={() => { navigate('/courses'); setIsOpen(false); }}>
+
+              {/* ACTION BUTTONS */}
+              <div className="flex flex-col gap-3 pt-4">
+                <Button
+                  className="w-full gradient-bg"
+                  onClick={() => {
+                    navigate('/courses');
+                    setIsOpen(false);
+                  }}
+                >
                   {language === 'en' ? 'Join Course' : 'कोर्स जॉइन'}
                 </Button>
-                <button
+
+                <Button
+                  variant="outline"
+                  className="w-full"
                   onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}
-                  className="px-3 py-1 rounded-md text-sm font-medium border border-border text-muted-foreground"
                 >
-                  {language === 'en' ? 'हिंदी' : 'English'}
-                </button>
+                  <Globe className="w-4 h-4 mr-2" />
+                  {language === 'en' ? 'Switch to हिंदी' : 'Switch to English'}
+                </Button>
               </div>
             </div>
           </motion.div>

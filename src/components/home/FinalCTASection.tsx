@@ -22,8 +22,8 @@ export default function FinalCTASection() {
               : <>यदि आप <span className="gradient-text">स्पष्टता, संरेखण और गहरी समझ</span> की तलाश में हैं — तो आप सही जगह पर हैं।</>}
           </h2>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <Button size="lg" className="gradient-bg text-primary-foreground text-base px-8 glow-gold group" onClick={() => navigate('/courses')}>
-              <BookOpen className="w-5 h-5 mr-2" />
+            <Button size="lg" className="gradient-bg text-white text-base px-8 glow-gold group" onClick={() => navigate('/courses')}>
+              <BookOpen className="w-5 h-5 mr-2 " />
               {language === 'en' ? 'Join a Course' : 'कोर्स में शामिल हों'}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>

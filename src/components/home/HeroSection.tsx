@@ -71,7 +71,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}
               className="flex flex-wrap justify-center lg:justify-start gap-4"
             >
-              <Button size="lg" className="gradient-bg text-primary-foreground text-base px-8 glow-gold group" onClick={() => navigate('/courses')}>
+              <Button size="lg" className="gradient-bg  text-primary-foreground text-white px-8 glow-gold group" onClick={() => navigate('/courses')}>
                 <Sparkles className="w-5 h-5 mr-2" />
                 {language === 'en' ? 'Explore Courses' : 'कोर्स देखें'}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -107,8 +107,7 @@ export default function HeroSection() {
               <div className="relative w-72 md:w-80 lg:w-88  rounded-3xl overflow-hidden border-2 border-primary/20 shadow-2xl glow-gold">
                 <img src={tulikaPhoto} alt="Tulika Devi — Numerologist, Astrologer & Healer" className="w-full h-auto object-cover" />
                 <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-foreground/80 via-foreground/40 to-transparent p-6">
-                  <p className="text-lg font-heading font-bold text-background">Astro Tulika</p>
-                  <p className="text-xs text-background/70">Decode patterns, not just numbers.</p>
+                 
                 </div>
               </div>
 

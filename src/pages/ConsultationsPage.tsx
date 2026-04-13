@@ -69,7 +69,7 @@ export default function ConsultationsPage() {
                   <span>Online</span>
                 </div>
                 <div className="text-3xl font-bold gradient-text mb-6">₹1,100<span className="text-sm font-normal text-muted-foreground"> / hour</span></div>
-                <Button size="lg" className="w-full gradient-bg text-primary-foreground glow-gold" onClick={handleBook}>
+                <Button size="lg" className="w-full gradient-bg text-white glow-gold" onClick={handleBook}>
                   <MessageCircle className="w-5 h-5 mr-2" />
                   {language === 'en' ? 'Book Your Session' : 'अपना सत्र बुक करें'}
                 </Button>
@@ -107,7 +107,7 @@ export default function ConsultationsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {seekGuidance.map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="flex flex-col items-center p-5 rounded-2xl bg-[#246E96] border border-border/50 hover:border-primary/30 transition-all text-center"
+                className="flex flex-col items-center p-5 rounded-2xl bg-[#246E96] text-white border border-border/50 hover:border-primary/30 transition-all text-center"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                   <item.icon className="w-6 h-6 text-primary" />
@@ -136,7 +136,7 @@ export default function ConsultationsPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button size="lg" className="gradient-bg text-primary-foreground glow-gold" onClick={handleBook}>
+            <Button size="lg" className="gradient-bg text-white glow-gold" onClick={handleBook}>
               <MessageCircle className="w-5 h-5 mr-2" />
               {language === 'en' ? 'Book Your Session' : 'अपना सत्र बुक करें'}
             </Button>

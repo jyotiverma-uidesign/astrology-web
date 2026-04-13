@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { useStore } from '../../store/useStore';
 
 const videos = [
-  { title: 'Basics of Vedic Astrology', id: 'oftAZNzcSMs' },
-  { title: 'Understanding Your Birth Chart', id: 'KjLCscELJKk' },
-  { title: 'Numerology for Beginners', id: 'tc3a6v5YLAI'},
+  { title: 'Weigh Loss Tips', id: 'lT0tNK0d59w' },
+  { title: 'Why International Men’s Day Matters: Analysis', id: 'zYdcpKUyY4E' },
+  { title: 'Marriage Timing & Gold Gain Analysis', id: '45tXzMGGYzU'},
 ];
 
 export default function VideoSection() {

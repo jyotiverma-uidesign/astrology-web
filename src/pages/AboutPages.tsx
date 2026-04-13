@@ -86,7 +86,7 @@ export default function AboutPage() {
         </div>
       </section>
       <section className="py-20 bg-muted/30">
-  <div className="container mx-auto px-4 max-w-5xl text-center">
+  <div className="container   mx-auto px-4 max-w-5xl text-center">
 
     <h2 className="text-3xl font-heading font-bold mb-12">
       {language === 'en' ? 'Presence Across India' : 'भारत में उपस्थिति'}
@@ -109,7 +109,7 @@ export default function AboutPage() {
             rotateX: 5
           }}
           transition={{ delay: i * 0.2, type: "spring" }}
-          className="group perspective"
+          className="group perspective bg-purple-300 rounded-3xl"
         >
           
           <div className="relative p-8 rounded-3xl bg-card border border-border/50 shadow-xl transform transition duration-500 preserve-3d">
@@ -221,7 +221,7 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="p-8 rounded-2xl bg-muted/50 border border-border/50 text-center">
+          <div className="p-8 rounded-2xl bg-pink-50 border border-border/50 text-center">
             <p className="text-lg font-heading font-semibold text-foreground/80 italic">
               {language === 'en'
                 ? 'Through Astro Tulika, the intention is not just to offer predictions — but to offer understanding.'
@@ -232,10 +232,10 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 cosmic-bg text-primary-foreground">
+      <section className="py-2 text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="gradient-gold text-foreground text-base px-8 group" onClick={() => navigate('/courses')}>
+            <Button size="lg" className="gradient-bg  text-white text-base px-8 group" onClick={() => navigate('/courses')}>
               <BookOpen className="w-5 h-5 mr-2" /> {language === 'en' ? 'Explore Courses' : 'कोर्स देखें'}
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
