@@ -7,18 +7,49 @@ import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
 import { useStore } from '../store/useStore';
 import PageTransition from '../components/PageTransition';
+import { supabase } from '../lib/supabaseClient';
 
 export default function ContactPage() {
   const { language } = useStore();
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' , location: ''
+  });
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = encodeURIComponent(`Hi Astro Tulika,\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage: ${form.message}`);
-    window.open(`https://wa.me/+918135802073?text=${msg}`, '_blank');
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const { error } = await supabase.from('enquiry_table').insert([form]);
+
+    if (error) {
+      alert("Database error");
+      return;
+    }
+
+    await fetch("http://localhost:5000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
     setSent(true);
-  };
+
+  
+    const msg = encodeURIComponent(
+      `Hi Astro Tulika,
+Name: ${form.name}
+Phone: ${form.phone}
+Message: ${form.message}`
+    );
+
+    window.open(`https://wa.me/+918135802073?text=${msg}`, "_blank");
+
+  } catch {
+    alert("Something went wrong");
+  }
+};
 
   return (
     <PageTransition>
@@ -63,6 +94,53 @@ export default function ContactPage() {
                   <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-1" />
                 </div>
               </div>
+              <div>
+  <Label>Current Location</Label>
+
+  <div className="flex gap-2">
+    <Input
+      placeholder="Click 'Get Location'"
+      value={form.location}
+      readOnly
+      required
+      className="mt-1"
+    />
+
+    <Button
+      type="button"
+      onClick={() => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            async (position) => {
+              const lat = position.coords.latitude;
+              const lng = position.coords.longitude;
+
+              try {
+                const res = await fetch(
+                  `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+                );
+                const data = await res.json();
+
+                // 👉 Full address
+                const place = data.display_name;
+
+                setForm({ ...form, location: place });
+              } catch {
+                alert("Location fetch failed");
+              }
+            },
+            () => {
+              alert("Permission denied");
+            }
+          );
+        }
+      }}
+      className="mt-1"
+    >
+      Get
+    </Button>
+  </div>
+</div>
               <div>
                 <Label>{language === 'en' ? 'Message' : 'संदेश'}</Label>
                 <Textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required rows={4} className="mt-1" />
