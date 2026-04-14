@@ -1,6 +1,5 @@
 import PageTransition from '../components/PageTransition';
 import HeroSection from '../components/home/HeroSection';
-import BrandPositioningSection from '../components/home/BrandPositioningSection';
 import SignatureApproachSection from '../components/home/SignatureApproachSection';
 import OfferingsSection from '../components/home/OfferingsSection';
 import PricingSection from '../components/home/PricingSection';
@@ -14,7 +13,7 @@ export default function Home() {
   return (
     <PageTransition>
       <HeroSection />
-      <BrandPositioningSection />
+      {/* <BrandPositioningSection /> */}
       <SignatureApproachSection />
       <OfferingsSection />
       <PricingSection />

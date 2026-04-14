@@ -3,7 +3,7 @@ import PageTransition from '../components/PageTransition';
 export default function RefundPage() {
   return (
     <PageTransition>
-      <section className="py-20 bg-card">
+      <section className="py-10 bg-card">
         <div className="container mx-auto px-4 max-w-3xl prose prose-neutral">
           <h1 className="text-3xl font-heading font-bold mb-8">Refund Policy – Astro Tulika</h1>
 

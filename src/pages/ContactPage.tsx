@@ -53,7 +53,7 @@ Message: ${form.message}`
 
   return (
     <PageTransition>
-      <section className="py-24" style={{ background: 'var(--gradient-hero)' }}>
+      <section className="py-10" style={{ background: 'var(--gradient-hero)' }}>
         <div className="container mx-auto px-4 text-center max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
@@ -68,7 +68,7 @@ Message: ${form.message}`
         </div>
       </section>
 
-      <section className="py-20 bg-card">
+      <section className="py-10 bg-card">
         <div className="container mx-auto px-4 max-w-xl">
           {sent ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-16">

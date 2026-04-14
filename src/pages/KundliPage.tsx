@@ -103,7 +103,7 @@ useEffect(() => {
   return (
     <PageTransition>
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-linear-to-br from-primary/10 via-secondary/5 to-accent/10 py-16">
+      <section className="relative overflow-hidden bg-linear-to-br from-primary/10 via-secondary/5 to-accent/10 py-10">
         <div className="absolute inset-0">
         {particles.map((p, i) =>  (
 

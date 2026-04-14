@@ -85,7 +85,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section className="py-20 bg-muted/30">
+      <section className="py-5 bg-muted/30">
   <div className="container   mx-auto px-4 max-w-5xl text-center">
 
     <h2 className="text-3xl font-heading font-bold mb-12">
@@ -144,7 +144,7 @@ export default function AboutPage() {
 </section>
 
       {/* Introduction */}
-      <section className="py-20 bg-card">
+      <section className="py-5 bg-card">
         <div className="container mx-auto px-4 max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-xl font-heading font-semibold text-foreground mb-6 leading-relaxed">
@@ -167,7 +167,7 @@ export default function AboutPage() {
       </section>
 
       {/* My Work */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-5 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl font-heading font-bold text-center mb-10">
             {language === 'en' ? 'My Work Brings Together' : 'मेरा काम एक साथ लाता है'}
@@ -193,7 +193,7 @@ export default function AboutPage() {
       </section>
 
       {/* Approach */}
-      <section className="py-20 bg-card">
+      <section className="py-5 bg-card">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl font-heading font-bold mb-6">
             {language === 'en' ? 'My Approach' : 'मेरा दृष्टिकोण'}

@@ -13,7 +13,7 @@ export default function BrandPositioningSection() {
   const { language } = useStore();
 
   return (
-    <section className="py-24 bg-card relative overflow-hidden">
+    <section className="py-5 bg-card relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">

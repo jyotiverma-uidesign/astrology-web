@@ -94,12 +94,26 @@ function SectionHeader({ subtitle, title, description }: { subtitle: string; tit
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-center mb-14"
+      className="text-center mb-6 md:mb-8"   // ⬅️ FIXED (was mb-14)
     >
-      <span className="text-sm tracking-[0.3em] uppercase font-body text-mystic-light">{subtitle}</span>
-      <h2 className="text-3xl md:text-5xl font-heading mt-3 mb-4 gradient-text leading-tight">{title}</h2>
-      {description && <p className="text-muted-foreground font-body text-lg w-full">{description}</p>}
-      <div className="w-20 h-px bg-linear-to-r from-transparent via-gold to-transparent mx-auto mt-6" />
+      {subtitle && (
+        <span className="text-sm tracking-[0.3em] uppercase font-body text-mystic-light">
+          {subtitle}
+        </span>
+      )}
+
+      <h2 className="text-2xl md:text-4xl font-heading mt-2 mb-2 gradient-text leading-tight">
+        {title}
+      </h2>
+
+      {description && (
+        <p className="text-muted-foreground font-body text-base md:text-lg leading-relaxed">
+          {description}
+        </p>
+      )}
+
+      {/* ⬇️ this line was creating extra visual gap, make it smaller */}
+      <div className="w-16 h-px bg-linear-to-r from-transparent via-gold to-transparent mx-auto mt-4" />
     </motion.div>
   );
 }
@@ -261,15 +275,16 @@ alert("Your question has been submitted successfully. You will receive a respons
       </section>
 
       {/* ═══════════ SECTION 2: HOW IT WORKS ═══════════ */}
-     <section className="py-2 section-mystic">
+     <section className="py-0 section-mystic">
   <div className="max-w-6xl mx-auto px-4">
     <SectionHeader
       subtitle=""
       title="How It Works"
       description="A sacred four-step journey from intention to illumination"
+      
     />
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {HOW_IT_WORKS.map((item, i) => (
         <motion.div
           key={i}
@@ -277,9 +292,9 @@ alert("Your question has been submitted successfully. You will receive a respons
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.1 }}
-          className="text-center group bg-[#e1c8ba] rounded-xl p-4"
+          className="text-center group bg-[#e1c8ba] rounded-xl p-4 "
         >
-          <div className="relative mx-auto w-16 h-16 mb-3 font-semibold">
+          <div className="relative mx-auto w-16 h-16 mb-2 font-semibold">
             <div className="absolute inset-0 rounded-xl bg-primary/5 group-hover:bg-primary/10 transition duration-300 rotate-6" />
 
             <div className="relative w-full h-full rounded-xl bg-card mystic-border flex items-center justify-center group-hover:glow-mystic transition duration-300">
@@ -447,7 +462,7 @@ alert("Your question has been submitted successfully. You will receive a respons
                 })}
               </div>
 
-              <div className="flex justify-center gap-4 mb-12">
+              <div className="flex justify-center gap-4 mb-5">
                 {flippedCards.size < drawn.length && (
                   <Button onClick={revealAll} variant="outline" className="mystic-border text-primary hover:bg-primary/5">Reveal All</Button>
                 )}
@@ -561,7 +576,7 @@ alert("Your question has been submitted successfully. You will receive a respons
   viewport={{ once: true }}
   className="w-full"
 >
-  <div className="relative max-w-3xl mx-auto p-6 md:p-10 rounded-3xl bg-card mystic-border glow-gold overflow-hidden">
+  <div className="relative max-w-3xl mx-auto p-2 md:p-10 rounded-3xl bg-card mystic-border glow-gold overflow-hidden">
     
     <div className="absolute top-4 right-4 opacity-5">
       <DailyIcon className="w-40 h-40 text-primary" />
@@ -650,7 +665,7 @@ alert("Your question has been submitted successfully. You will receive a respons
 </section>
 
       {/* ═══════════ SECTION 7: FOOTER ═══════════ */}
-      <footer className="py-16 bg-linear-to-b from-card to-background">
+      <footer className="py-5 bg-linear-to-b from-card to-background">
         <div className="w-full px-4">
           <div className="text-center">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>

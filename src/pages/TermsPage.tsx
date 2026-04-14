@@ -3,7 +3,7 @@ import PageTransition from '../components/PageTransition';
 export default function TermsPage() {
   return (
     <PageTransition>
-      <section className="py-20 bg-card">
+      <section className="py-10 bg-card">
         <div className="container mx-auto px-4 max-w-3xl prose prose-neutral">
           <h1 className="text-3xl font-heading font-bold mb-8">Terms & Conditions – Astro Tulika</h1>
           <p>By using this website or enrolling in any course, you agree to the following:</p>

@@ -24,7 +24,7 @@ export default function CrystalsPage() {
   return (
     <PageTransition>
       {/* Hero */}
-      <section className="py-24" style={{ background: 'var(--gradient-hero)' }}>
+      <section className="py-10" style={{ background: 'var(--gradient-hero)' }}>
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="text-5xl mb-4 block">💎</span>
@@ -41,7 +41,7 @@ export default function CrystalsPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-card">
+      <section className="py-10 bg-card">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-12">
             {language === 'en' ? 'Crystals May Support You With' : 'क्रिस्टल आपकी सहायता कर सकते हैं'}
@@ -62,7 +62,7 @@ export default function CrystalsPage() {
       </section>
 
       {/* Important Note */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-5 bg-muted/30">
         <div className="container mx-auto px-4 max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="p-8 rounded-2xl bg-card border border-primary/20 text-center"

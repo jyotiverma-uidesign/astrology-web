@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
   const { language } = useStore();
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-5 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">

@@ -40,7 +40,7 @@ export default function ConsultationsPage() {
   return (
     <PageTransition>
       {/* Hero */}
-      <section className="py-20" style={{ background: 'var(--gradient-hero)' }}>
+      <section className="py-10" style={{ background: 'var(--gradient-hero)' }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -80,7 +80,7 @@ export default function ConsultationsPage() {
       </section>
 
       {/* Includes */}
-      <section className="py-20 bg-card">
+      <section className="py-5 bg-card">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
             {language === 'en' ? 'What Your Session May Include' : 'आपके सत्र में क्या शामिल हो सकता है'}
@@ -99,7 +99,7 @@ export default function ConsultationsPage() {
       </section>
 
       {/* Seek Guidance For */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-5 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
             {language === 'en' ? 'You Can Seek Guidance For' : 'आप मार्गदर्शन ले सकते हैं'}
@@ -120,7 +120,7 @@ export default function ConsultationsPage() {
       </section>
 
       {/* Expectations */}
-      <section className="py-20 bg-card">
+      <section className="py-6 bg-card">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
             {language === 'en' ? 'What to Expect' : 'क्या उम्मीद करें'}
@@ -135,7 +135,7 @@ export default function ConsultationsPage() {
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-2">
             <Button size="lg" className="gradient-bg text-white glow-gold" onClick={handleBook}>
               <MessageCircle className="w-5 h-5 mr-2" />
               {language === 'en' ? 'Book Your Session' : 'अपना सत्र बुक करें'}

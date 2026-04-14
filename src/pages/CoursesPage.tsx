@@ -60,7 +60,7 @@ export default function CoursesPage() {
   return (
     <PageTransition>
       {/* Hero */}
-      <section className="py-20 bg-card" style={{ background: 'var(--gradient-hero)' }}>
+      <section className="py-5 bg-card" style={{ background: 'var(--gradient-hero)' }}>
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
@@ -81,9 +81,9 @@ export default function CoursesPage() {
       </section>
 
       {/* Course Cards */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 space-y-16">
-          {coursesData.map((course, ) => (
+      <section className="py-7">
+<div className="container mx-auto px-4 space-y-8 md:space-y-10">
+            {coursesData.map((course, ) => (
             <motion.div
               key={course.slug}
               initial={{ opacity: 0, y: 30 }}
@@ -112,7 +112,7 @@ export default function CoursesPage() {
               <h3 className="font-heading font-semibold mb-4">{language === 'en' ? 'What You Will Learn' : 'आप क्या सीखेंगे'}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
                 {course.topics.map((topic, j) => (
-                  <div key={j} className="flex items-start gap-2 p-3 rounded-xl bg-primary/5">
+                  <div key={j} className="flex items-start gap-2 p-1 rounded-xl bg-primary/5">
                     <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span className="text-sm">{topic}</span>
                   </div>

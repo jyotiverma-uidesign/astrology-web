@@ -19,15 +19,15 @@ export default function FAQSection() {
   const { language } = useStore();
 
   return (
-    <section className="py-24 bg-card">
+    <section className="py-5 bg-card">
       <div className="container mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
             {language === 'en' ? <>Frequently Asked <span className="gradient-text">Questions</span></> : <>अक्सर पूछे जाने वाले <span className="gradient-text">सवाल</span></>}
           </h2>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto space-y-3">
+        <div className="max-w-3xl mx-auto space-y-1">
           {faqs.map((faq, i) => (
             <motion.div
               key={i}
@@ -63,10 +63,10 @@ export default function FAQSection() {
           ))}
         </div>
 
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mt-12">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center ">
           <p className="text-muted-foreground mb-4">{language === 'en' ? 'Still have questions?' : 'अभी भी सवाल हैं?'}</p>
           <Button variant="outline" className="border-primary/30" onClick={() => {
-            window.open('https://wa.me/919876543210?text=' + encodeURIComponent('Hi, I have a question about Astro Tulika services.'), '_blank');
+            window.open('https://wa.me/+918135802073?text=' + encodeURIComponent('Hi, I have a question about Astro Tulika services.'), '_blank');
           }}>
             <MessageCircle className="w-4 h-4 mr-2" />
             {language === 'en' ? 'Ask on WhatsApp' : 'WhatsApp पर पूछें'}

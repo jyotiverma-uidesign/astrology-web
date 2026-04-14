@@ -3,7 +3,7 @@ import PageTransition from '../components/PageTransition';
 export default function PrivacyPage() {
   return (
     <PageTransition>
-      <section className="py-20 bg-card">
+      <section className="py-10 bg-card">
         <div className="container mx-auto px-4 max-w-3xl prose prose-neutral">
           <h1 className="text-3xl font-heading font-bold mb-8">Privacy Policy – Astro Tulika</h1>
           <p>We respect your privacy and are committed to protecting your personal information.</p>

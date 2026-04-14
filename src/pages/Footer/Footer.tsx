@@ -21,51 +21,95 @@ const legalLinks = [
 export default function Footer() {
   return (
     <footer className="cosmic-bg text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 py-6">
+
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* BRAND */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Astro Tulika" className="w-10 h-10 rounded-full object-cover" />
-              <span className="font-heading text-lg font-bold">Astro Tulika</span>
+              <img
+                src={logo}
+                alt="Astro Tulika"
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <span className="font-heading text-lg font-bold">
+                Astro Tulika
+              </span>
             </div>
-            <p className="text-md font-normal opacity-70 mb-2">Decode patterns, not just numbers.</p>
-            <p className="text-sm opacity-50">Helping you understand numbers, patterns and energy with more clarity and alignment.</p>
-          </div>
-          <div>
-            <h4 className="font-heading font-semibold mb-3">Quick Links</h4>
-            <div className="space-y-2 text-sm opacity-70">
-              {mainLinks.map((link) => (
-                <Link key={link.path} to={link.path} className="block hover:opacity-100 transition-opacity">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h4 className="font-heading font-semibold mb-3">Legal</h4>
-            <div className="space-y-2 text-sm opacity-70">
-              {legalLinks.map((link) => (
-                <Link key={link.path} to={link.path} className="block hover:opacity-100 transition-opacity">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h4 className="font-heading font-semibold mb-3">Contact</h4>
-            <div className="space-y-2 text-sm opacity-70">
-              <p>tulikanewslive@gmail.com</p>
-              <p>+918135802073</p>
-              <p>Delhi • Madhya Pradesh • Assam</p>
 
-             
-            </div>
-            <p className="text-sm opacity-50 mt-4">Numerology • Vedic Alignment • Tarot • Crystal Guidance</p>
+            <p className="text-sm text-white/70 mb-2">
+              Decode patterns, not just numbers.
+            </p>
+
+            <p className="text-xs text-white/50">
+              Helping you understand numbers, patterns and energy with clarity.
+            </p>
           </div>
+
+          {/* QUICK LINKS */}
+          <div className="border-b border-white/10 pb-4 sm:border-none sm:pb-0">
+            <h4 className="font-heading font-semibold mb-3 text-white">
+              Quick Links
+            </h4>
+
+            <div className="space-y-2 text-sm text-white/70">
+              {mainLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="block hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* LEGAL */}
+          <div className="border-b border-white/10 pb-4 sm:border-none sm:pb-0">
+            <h4 className="font-heading font-semibold mb-3 text-white">
+              Legal
+            </h4>
+
+            <div className="space-y-2 text-sm text-white/70">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="block hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h4 className="font-heading font-semibold mb-3 text-white">
+              Contact
+            </h4>
+
+            <div className="space-y-2 text-sm text-white/70">
+              <p>tulikanewslive@gmail.com</p>
+              <p>+91 8135802073</p>
+              <p>Delhi • Madhya Pradesh • Assam</p>
+            </div>
+
+            <p className="text-xs text-white/50 mt-4">
+              Numerology • Vedic Alignment • Tarot • Crystal Guidance
+            </p>
+          </div>
+
         </div>
-        <div className="border-t border-primary-foreground/10 mt-8 pt-6 text-center text-sm opacity-50">
+
+        {/* BOTTOM LINE */}
+        <div className="border-t border-white/10 mt-8 pt-4 text-center text-xs text-white/50">
           © {new Date().getFullYear()} Astro Tulika. All rights reserved.
         </div>
+
       </div>
     </footer>
   );

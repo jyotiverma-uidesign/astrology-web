@@ -21,7 +21,7 @@ export default function FAQPage() {
 
   return (
     <PageTransition>
-      <section className="py-24" style={{ background: 'var(--gradient-hero)' }}>
+      <section className="py-10" style={{ background: 'var(--gradient-hero)' }}>
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
@@ -31,7 +31,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-card">
+      <section className="py-5 bg-card">
         <div className="container mx-auto px-4 max-w-3xl space-y-3">
           {faqs.map((faq, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
