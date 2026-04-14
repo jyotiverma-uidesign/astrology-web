@@ -51,9 +51,9 @@ export default function FAQPage() {
             </motion.div>
           ))}
         </div>
-        <div className="text-center mt-12">
+        <div className="text-center mt-5">
           <Button variant="outline" className="border-primary/30" onClick={() => {
-            window.open('https://wa.me/919876543210?text=' + encodeURIComponent('Hi, I have a question.'), '_blank');
+            window.open('https://wa.me/+918135802073?text=' + encodeURIComponent('Hi, I have a question.'), '_blank');
           }}>
             <MessageCircle className="w-4 h-4 mr-2" /> Ask on WhatsApp
           </Button>

@@ -35,7 +35,7 @@ export default function AboutPage() {
   return (
     <PageTransition>
       {/* Hero */}
-      <section className="relative py-24 overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
+      <section className="relative py-5 overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>

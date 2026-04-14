@@ -125,7 +125,7 @@ export default function ConsultationsPage() {
           <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
             {language === 'en' ? 'What to Expect' : 'क्या उम्मीद करें'}
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-0">
             {expectations.map((exp, i) => (
               <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="flex items-center gap-3 p-4 rounded-xl bg-primary/5"

@@ -339,22 +339,23 @@ alert("Your question has been submitted successfully. You will receive a respons
 
   <div className="relative">
     <input
-      type="text"
-      value={question}
-      onChange={(e) => setQuestion(e.target.value)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          handleSubmit();
-        }
-      }}
-      placeholder="What does the universe want me to know?"
-      className="w-full bg-blue-50 mystic-border text-sm rounded-xl px-5 py-4 pr-20 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 font-body "
-    />
-
+  type="text"
+  value={question}
+  onChange={(e) => setQuestion(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  }}
+  placeholder="What does the universe want me to know?"
+  className="w-full bg-blue-50 mystic-border text-sm rounded-xl px-5 py-4 pr-20 text-foreground 
+  placeholder:text-xs sm:placeholder:text-sm md:placeholder:text-sm 
+  placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 font-body"
+/>
     {/* Send Button */}
     <button
       onClick={handleSubmit}
-      className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2  rounded-lg bg-linear-to-r from-primary to-purple-500 text-white text-sm font-medium hover:scale-105 transition-all duration-300"
+      className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2  rounded-lg bg-purple-300  text-white text-sm font-medium hover:scale-105 transition-all duration-300"
     >
       Send
     </button>
