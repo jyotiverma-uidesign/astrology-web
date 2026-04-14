@@ -28,8 +28,8 @@ export default function Footer() {
               <img src={logo} alt="Astro Tulika" className="w-10 h-10 rounded-full object-cover" />
               <span className="font-heading text-lg font-bold">Astro Tulika</span>
             </div>
-            <p className="text-sm opacity-70 mb-2">Decode patterns, not just numbers.</p>
-            <p className="text-xs opacity-50">Helping you understand numbers, patterns and energy with more clarity and alignment.</p>
+            <p className="text-md font-normal opacity-70 mb-2">Decode patterns, not just numbers.</p>
+            <p className="text-sm opacity-50">Helping you understand numbers, patterns and energy with more clarity and alignment.</p>
           </div>
           <div>
             <h4 className="font-heading font-semibold mb-3">Quick Links</h4>
@@ -60,7 +60,7 @@ export default function Footer() {
 
              
             </div>
-            <p className="text-xs opacity-50 mt-4">Numerology • Vedic Alignment • Tarot • Crystal Guidance</p>
+            <p className="text-sm opacity-50 mt-4">Numerology • Vedic Alignment • Tarot • Crystal Guidance</p>
           </div>
         </div>
         <div className="border-t border-primary-foreground/10 mt-8 pt-6 text-center text-sm opacity-50">

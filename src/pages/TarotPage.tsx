@@ -287,11 +287,11 @@ alert("Your question has been submitted successfully. You will receive a respons
             </div>
           </div>
 
-          <h3 className="text-sm font-heading text-foreground mb-1">
+          <h3 className="text-md font-mono font-heading text-foreground mb-1">
             {item.title}
           </h3>
 
-          <p className="text-xs text-muted-foreground leading-snug">
+          <p className="text-sm text-muted-foreground leading-snug">
             {item.desc}
           </p>
 
@@ -537,11 +537,11 @@ alert("Your question has been submitted successfully. You will receive a respons
               <Icon className="w-4 h-4 text-primary font-bold" />
             </div>
 
-            <p className="text-sm font-heading text-foreground leading-tight">
+            <p className="text-sm font-normal font-heading text-foreground leading-tight">
               {card.name}
             </p>
 
-            <span className="text-[9px] text-muted-foreground">
+            <span className="text-[12px] text-muted-foreground">
               {card.numeral} · {card.element}
             </span>
           </motion.div>
@@ -582,13 +582,13 @@ alert("Your question has been submitted successfully. You will receive a respons
           {dailyCard.name}
         </h3>
 
-        <p className="text-sm leading-relaxed mb-3">
+        <p className="text-md leading-relaxed mb-3">
           {dailyCard.meaning}
         </p>
 
         <div className="flex flex-wrap gap-2 justify-center md:justify-start">
           {dailyCard.keywords.map((k) => (
-            <span key={k} className="text-xs px-2 py-1 rounded-full bg-primary/10">
+            <span key={k} className="text-sm px-2 py-1 rounded-full bg-primary/10">
               {k}
             </span>
           ))}
@@ -622,7 +622,7 @@ alert("Your question has been submitted successfully. You will receive a respons
         >
           <Quote className="w-5 h-5 text-gold/30 mb-2" />
 
-          <p className="text-foreground/80 text-sm leading-relaxed mb-3 italic line-clamp-3">
+          <p className="text-foreground/80 text-md leading-relaxed mb-3 italic line-clamp-3">
             "{t.text}"
           </p>
 
