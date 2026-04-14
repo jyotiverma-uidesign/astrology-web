@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import "../App.css"
-
+import { useNavigate } from 'react-router-dom';
 /* ─────────────────────── TAROT DATA ─────────────────────── */
 const MAJOR_ARCANA = [
   { name: 'The Fool', numeral: '0', icon: Feather, meaning: 'New beginnings, innocence, spontaneity, and a free spirit. Trust the journey ahead — leap into the unknown with faith.', reversed: 'Recklessness, fear of the unknown, holding back from growth.', element: 'Air', keywords: ['Beginning', 'Freedom', 'Adventure'] },
@@ -126,7 +126,16 @@ export default function Index() {
     setShowReading(true);
     setTimeout(() => readingRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
   }, [selectedSpread]);
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+  if (!question.trim()) return;
 
+  // message show
+alert("Your question has been submitted successfully. You will receive a response shortly.");
+
+  // redirect to contact page
+  navigate("/contact");
+};
   const flipCard = (index: number) => {
     setFlippedCards((prev) => {
       const next = new Set(prev);
@@ -135,6 +144,7 @@ export default function Index() {
       return next;
     });
   };
+
 
   const revealAll = () => {
     const all = new Set<number>();
@@ -159,8 +169,8 @@ export default function Index() {
   const DailyIcon = dailyCard.icon;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* ═══════════ SECTION 1: HERO ═══════════ */}
+<div className="min-h-screen bg-background w-full overflow-x-hidden">
+        {/* ═══════════ SECTION 1: HERO ═══════════ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden section-warm">
         {/* Floating decorative elements */}
         <div className="absolute inset-0 pointer-events-none z-0">
@@ -227,7 +237,7 @@ export default function Index() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading gradient-text leading-tight mb-6">
               Mystic Tarot
             </h1>
-            <p className="text-xl md:text-2xl font-body text-muted-foreground mb-4 max-w-xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl font-body text-muted-foreground mb-4 w-full px-4 leading-relaxed">
               Unveil the whispers of the cosmos. Let ancient cards illuminate your path through shadow and light.
             </p>
             <p className="text-sm font-body text-mystic-light tracking-widest uppercase mb-10">
@@ -251,36 +261,48 @@ export default function Index() {
       </section>
 
       {/* ═══════════ SECTION 2: HOW IT WORKS ═══════════ */}
-      <section className="py-2 section-mystic">
-        <div className="w-full px-4 ">
-          <SectionHeader  subtitle='' title="How It Works" description="A sacred four-step journey from intention to illumination" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-8 max-w-5xl mx-auto">
-            {HOW_IT_WORKS.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="text-center group bg-[#e1c8ba] rounded-2xl"
-              >
-                <div className="relative mx-auto w-20 h-20 mb-6">
-                  <div className="absolute inset-0 rounded-2xl bg-primary/5 group-hover:bg-primary/10 transition-colors duration-500 rotate-6" />
-                  <div className="relative w-full h-full rounded-2xl bg-card mystic-border flex items-center justify-center group-hover:glow-mystic transition-shadow duration-500">
-                    <item.icon className="w-8 h-8 text-mystic group-hover:text-primary transition-colors" />
-                  </div>
-                  
-                </div>
-                <h3 className="text-lg font-heading text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm font-body text-muted-foreground leading-relaxed">{item.desc}</p>
-                {i < HOW_IT_WORKS.length - 1 && (
-                  <MoveRight className="w-5 h-5 text-gold/30 mx-auto mt-6 hidden lg:block" />
-                )}
-              </motion.div>
-            ))}
+     <section className="py-2 section-mystic">
+  <div className="max-w-6xl mx-auto px-4">
+    <SectionHeader
+      subtitle=""
+      title="How It Works"
+      description="A sacred four-step journey from intention to illumination"
+    />
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {HOW_IT_WORKS.map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1 }}
+          className="text-center group bg-[#e1c8ba] rounded-xl p-4"
+        >
+          <div className="relative mx-auto w-16 h-16 mb-3 font-semibold">
+            <div className="absolute inset-0 rounded-xl bg-primary/5 group-hover:bg-primary/10 transition duration-300 rotate-6" />
+
+            <div className="relative w-full h-full rounded-xl bg-card mystic-border flex items-center justify-center group-hover:glow-mystic transition duration-300">
+              <item.icon className="w-6 h-6 text-mystic group-hover:text-primary transition-colors" />
+            </div>
           </div>
-        </div>
-      </section>
+
+          <h3 className="text-sm font-heading text-foreground mb-1">
+            {item.title}
+          </h3>
+
+          <p className="text-xs text-muted-foreground leading-snug">
+            {item.desc}
+          </p>
+
+          {i < HOW_IT_WORKS.length - 1 && (
+            <MoveRight className="w-4 h-4 text-gold/30 mx-auto mt-3 hidden lg:block" />
+          )}
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ═══════════ SECTION 3: INTERACTIVE READING ═══════════ */}
       <section id="reading" ref={readingRef} className="py-5 section-warm">
@@ -294,42 +316,75 @@ export default function Index() {
           {!showReading ? (
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="w-full">
               {/* Question */}
-              <div className="mb-8">
-                <label className="block text-sm text-mystic-light mb-2 font-body tracking-wide">Focus your intention (optional)</label>
-                <input
-                  type="text"
-                  value={question}
-                  onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="What does the universe want me to know?"
-                  className="w-full bg-blue-50 mystic-border rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 font-body text-lg"
-                />
-              </div>
+              <div className="mb-8 flex justify-center">
+<div className="w-full max-w-xl">
+  <label className="block text-center text-sm text-mystic-light mb-2 font-body tracking-wide">
+    Focus your intention (optional)
+  </label>
+
+  <div className="relative">
+    <input
+      type="text"
+      value={question}
+      onChange={(e) => setQuestion(e.target.value)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          handleSubmit();
+        }
+      }}
+      placeholder="What does the universe want me to know?"
+      className="w-full bg-blue-50 mystic-border text-sm rounded-xl px-5 py-4 pr-20 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 font-body "
+    />
+
+    {/* Send Button */}
+    <button
+      onClick={handleSubmit}
+      className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2  rounded-lg bg-linear-to-r from-primary to-purple-500 text-white text-sm font-medium hover:scale-105 transition-all duration-300"
+    >
+      Send
+    </button>
+  </div>
+</div>
+</div>
 
               {/* Spread selection */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-                {(['single', 'three', 'celtic'] as const).map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => setSelectedSpread(s)}
-                    className={`p-5 rounded-2xl text-center bg-pink-50 transition-all border-black border duration-300  ${
-                      selectedSpread === s
-                        ? 'bg-primary/10  ring-2 ring-primary/30'
-                        : 'bg-card hover:bg-primary/5'
-                    }`}
-                  >
-                    <div className="flex justify-center gap-1 mb-3">
-                      {Array.from({ length: spreadInfo[s].count }).map((_, j) => (
-                        <div key={j} className={`w-5 h-7 rounded-sm ${selectedSpread === s ? 'bg-primary/30' : 'bg-muted-foreground/15'}`} />
-                      ))}
-                    </div>
-                    <p className={`text-sm font-heading ${selectedSpread === s ? 'text-primary' : 'text-foreground'}`}>{spreadInfo[s].label}</p>
-                    <p className="text-xs font-body text-muted-foreground mt-1">{spreadInfo[s].desc}</p>
-                  </button>
-                ))}
-              </div>
+ <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6 w-fit mx-auto">
+  {(['single', 'three', 'celtic'] as const).map((s) => (
+    <button
+      key={s}
+      onClick={() => setSelectedSpread(s)}
+      className={`w-52 p-3 rounded-lg text-center  border border-black transition-all duration-300 ${
+        selectedSpread === s
+          ? 'bg-primary/10 ring-2 ring-primary/30'
+          : 'bg-card hover:bg-primary/5'
+      }`}
+    >
+      <div className="flex justify-center gap-1 mb-1">
+        {Array.from({ length: spreadInfo[s].count }).map((_, j) => (
+          <div
+            key={j}
+            className={`w-3.5 h-5 rounded-sm ${
+              selectedSpread === s
+                ? 'bg-primary/30'
+                : 'bg-muted-foreground/15'
+            }`}
+          />
+        ))}
+      </div>
+
+      <p className=" font-heading">
+        {spreadInfo[s].label}
+      </p>
+
+      <p className="text-[10px] text-muted-foreground mt-0.5">
+        {spreadInfo[s].desc}
+      </p>
+    </button>
+  ))}
+</div>
 
               <div className="text-center">
-                <Button onClick={shuffleAndDraw} className="bg-[#3783A1] text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg rounded-2xl font-heading glow-mystic hover:scale-105 transition-all duration-500" size="lg">
+                <Button onClick={shuffleAndDraw} className="bg-[#3783A1] text-white hover:bg-primary/90 px-10 py-6 text-lg rounded-2xl font-heading  hover:scale-105 transition-all duration-500" size="lg">
                   <Sparkles className="w-5 h-5 mr-2" />
                   Shuffle & Draw
                 </Button>
@@ -346,7 +401,7 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto mb-8">
+              <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full px-4 mb-8">
                 {drawn.map((d, i) => {
                   const isFlipped = flippedCards.has(i);
                   const Icon = d.card.icon;
@@ -457,103 +512,142 @@ export default function Index() {
       </section>
 
       {/* ═══════════ SECTION 4: CARD GALLERY ═══════════ */}
-      <section className="py-2 section-mystic">
-        <div className="w-full px-4">
-          <SectionHeader  subtitle='' title="Major Arcana Cards" description="Explore the 20 cards of the Major Arcana — each carrying profound cosmic significance" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 b max-w-5xl mx-auto">
-            {MAJOR_ARCANA.map((card, i) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={card.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.04 }}
-                  whileHover={{ y: -6, scale: 1.03 }}
-                  className="p-4 rounded-xl bg-[#FAEDED] mystic-border text-center cursor-default hover:glow-mystic transition-shadow duration-500 group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/15 transition-colors">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <p className="text-xs font-heading text-foreground leading-tight">{card.name}</p>
-                  <span className="text-[10px] text-muted-foreground font-body">{card.numeral} · {card.element}</span>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+   <section className="py-2 section-mystic">
+  <div className="max-w-6xl mx-auto px-4">
+    <SectionHeader
+      subtitle=""
+      title="Major Arcana Cards"
+      description="Explore the 20 cards of the Major Arcana — each carrying profound cosmic significance"
+    />
+
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {MAJOR_ARCANA.map((card, i) => {
+        const Icon = card.icon;
+        return (
+          <motion.div
+            key={card.name}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.04 }}
+            whileHover={{ y: -6, scale: 1.03 }}
+            className="p-3 rounded-lg bg-[#FAEDED] mystic-border text-center cursor-default hover:glow-mystic transition-all duration-300 group"
+          >
+            <div className="w-9 h-9 rounded-full bg-primary/8 flex items-center justify-center mx-auto mb-2 group-hover:bg-primary/15 transition-colors">
+              <Icon className="w-4 h-4 text-primary font-bold" />
+            </div>
+
+            <p className="text-sm font-heading text-foreground leading-tight">
+              {card.name}
+            </p>
+
+            <span className="text-[9px] text-muted-foreground">
+              {card.numeral} · {card.element}
+            </span>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* ═══════════ SECTION 5: DAILY CARD ═══════════ */}
       <section className="py-5 section-rose">
         <div className="w-full px-4">
           <SectionHeader subtitle=''  title="Today's Card" description={`${today.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}`} />
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="w-full"
-          >
-            <div className="relative p-8 md:p-12 rounded-3xl bg-card mystic-border glow-gold overflow-hidden">
-              {/* Background decoration */}
-              <div className="absolute top-4 right-4 opacity-5">
-                <DailyIcon className="w-40 h-40 text-primary" />
-              </div>
-              <div className="relative flex flex-col md:flex-row items-center gap-8">
-                <div className="w-24 h-24 rounded-2xl bg-linear-to-br from-primary/15 to-gold/10 mystic-border flex items-center justify-center shrink-0">
-                  <DailyIcon className="w-12 h-12 text-primary" />
-                </div>
-                <div className="text-center md:text-left">
-                  <span className="text-xs tracking-[0.3em] uppercase text-gold-dim font-body">{dailyCard.numeral} · {dailyCard.element}</span>
-                  <h3 className="text-2xl md:text-3xl font-heading text-foreground mt-1 mb-3">{dailyCard.name}</h3>
-                  <p className="text-foreground/75 font-body text-base leading-relaxed mb-4">{dailyCard.meaning}</p>
-                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                    {dailyCard.keywords.map((k) => (
-                      <span key={k} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-mystic">{k}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="w-full"
+>
+  <div className="relative max-w-3xl mx-auto p-6 md:p-10 rounded-3xl bg-card mystic-border glow-gold overflow-hidden">
+    
+    <div className="absolute top-4 right-4 opacity-5">
+      <DailyIcon className="w-40 h-40 text-primary" />
+    </div>
+
+    <div className="relative flex flex-col md:flex-row items-center gap-6">
+      
+      <div className="w-20 h-20 rounded-xl bg-linear-to-br from-primary/15 to-gold/10 mystic-border flex items-center justify-center shrink-0">
+        <DailyIcon className="w-10 h-10 text-primary" />
+      </div>
+
+      <div className="text-center md:text-left">
+        <span className="text-xs tracking-[0.3em] uppercase text-gold-dim font-body">
+          {dailyCard.numeral} · {dailyCard.element}
+        </span>
+
+        <h3 className="text-xl md:text-2xl font-heading mt-1 mb-2">
+          {dailyCard.name}
+        </h3>
+
+        <p className="text-sm leading-relaxed mb-3">
+          {dailyCard.meaning}
+        </p>
+
+        <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+          {dailyCard.keywords.map((k) => (
+            <span key={k} className="text-xs px-2 py-1 rounded-full bg-primary/10">
+              {k}
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</motion.div>
         </div>
       </section>
 
       {/* ═══════════ SECTION 6: TESTIMONIALS ═══════════ */}
-      <section className="py-5 section-warm">
-        <div className="w-full px-4">
-          <SectionHeader  subtitle='' title="What Seekers Say" description="Real experiences from those who walked the mystical path" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {TESTIMONIALS.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className="p-6 rounded-2xl bg-amber-50 mystic-border hover:glow-mystic transition-shadow duration-500"
-              >
-                <Quote className="w-6 h-6 text-gold/30 mb-3" />
-                <p className="text-foreground/80 font-body text-base leading-relaxed mb-4 italic">"{t.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Users className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-heading text-foreground">{t.name}</p>
-                    <div className="flex gap-0.5">
-                      {Array.from({ length: t.rating }).map((_, j) => (
-                        <Star key={j} className="w-3 h-3 text-gold fill-gold" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+     <section className="py-5 section-warm">
+  <div className="max-w-6xl mx-auto px-4">
+    <SectionHeader
+      subtitle=""
+      title="What Seekers Say"
+      description="Real experiences from those who walked the mystical path"
+    />
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  gap-4">
+      {TESTIMONIALS.map((t, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1 }}
+          className="p-4 rounded-xl bg-amber-50 mystic-border border border-gray-300 hover:glow-mystic transition-all duration-300"
+        >
+          <Quote className="w-5 h-5 text-gold/30 mb-2" />
+
+          <p className="text-foreground/80 text-sm leading-relaxed mb-3 italic line-clamp-3">
+            "{t.text}"
+          </p>
+
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+              <Users className="w-3 h-3 text-primary" />
+            </div>
+
+            <div>
+              <p className="text-xs font-heading text-foreground">
+                {t.name}
+              </p>
+
+              <div className="flex gap-0.5">
+                {Array.from({ length: t.rating }).map((_, j) => (
+                  <Star key={j} className="w-3 h-3 text-gold fill-gold" />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ═══════════ SECTION 7: FOOTER ═══════════ */}
       <footer className="py-16 bg-linear-to-b from-card to-background">

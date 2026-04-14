@@ -1,27 +1,48 @@
 import { useNavigate } from 'react-router-dom';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { useStore } from '../../store/useStore';
 import tulikaPhoto from '../../assets/tulikadevi.jpeg';
-
+type Particle = {
+  left: number;
+  top: number;
+  duration: number;
+  delay: number;
+};
 export default function HeroSection() {
   const navigate = useNavigate();
   const { language } = useStore();
+
+  const particles: Particle[] = (() => {
+    const randomFloat = () => Math.random();
+    return Array.from({ length: 20 }, () => ({
+      left: randomFloat() * 100,
+      top: randomFloat() * 100,
+      duration: 3 + randomFloat() * 4,
+      delay: randomFloat() * 2,
+    }));
+  })();
 
   return (
     <section className="relative overflow-hidden min-h-[90vh] flex items-center" style={{ background: 'var(--gradient-hero)' }}>
       {/* Animated background particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-primary/30"
-            style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-            animate={{ y: [0, -30, 0], opacity: [0.2, 0.8, 0.2] }}
-            transition={{ duration: 3 + Math.random() * 4, repeat: Infinity, delay: Math.random() * 2 }}
-          />
-        ))}
+{particles.map((p, i) => (
+  <motion.div
+    key={i}
+    className="absolute w-1 h-1 rounded-full bg-primary/30 will-change-transform"
+    style={{ left: `${p.left}%`, top: `${p.top}%` }}
+    animate={{ y: [0, -30, 0], opacity: [0.2, 0.8, 0.2] }}
+    transition={{
+      duration: p.duration,
+      repeat: Infinity,
+      ease: "linear",
+      delay: p.delay,
+    }}
+  />
+))}
       </div>
 
       <div className="absolute top-0 left-0 w-full h-1 gradient-bg opacity-60" />

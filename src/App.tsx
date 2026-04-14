@@ -1,10 +1,13 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {  Route, Routes } from "react-router-dom";
 import { Toaster } from "./components/ui/Sonner";
 import { TooltipProvider } from "./components/ui/tooltip";
 import Navbar from "./pages/Navbar/Navbar";
 import Footer from "./pages/Footer/Footer";
+import { useLocation } from "react-router-dom";
+
+
 
 
 const Home = lazy(() => import("./pages/Home"));
@@ -30,13 +33,23 @@ const Loading = () => (
   </div>
 );
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-    
-      
+const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [location.pathname]);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+
         <Navbar />
+
         <main className="min-h-screen">
           <Suspense fallback={<Loading />}>
             <Routes>
@@ -57,11 +70,11 @@ const App = () => (
             </Routes>
           </Suspense>
         </main>
+
         <Footer />
-       
-    
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

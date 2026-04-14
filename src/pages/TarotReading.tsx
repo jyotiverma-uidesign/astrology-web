@@ -36,7 +36,7 @@ export default function TarotReading() {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-8">
+      <div className="w-full px-4 py-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-heading font-bold mb-2">
             🔮 {language === 'en' ? 'Tarot Card Reading' : 'टैरो कार्ड रीडिंग'}
