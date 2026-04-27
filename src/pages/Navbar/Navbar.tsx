@@ -79,6 +79,14 @@ export default function Navbar() {
               <BookOpen className="w-4 h-4 mr-1" />
               {language === 'en' ? 'Join courses' : 'कोर्स'}
             </Button>
+             <Button
+              size="sm"
+              className="gradient-bg text-white"
+              onClick={() => navigate('/admin')}
+            >
+              
+              {language === 'en' ? 'Login' : 'लॉगिन ('}
+            </Button>
           </div>
 
           {/* MOBILE BUTTON */}

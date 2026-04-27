@@ -62,7 +62,7 @@ const spreadInfo = {
 /* ─────────────────────── CARD BACK SVG ─────────────────────── */
 function CardBackPattern() {
   return (
-    <svg viewBox="0 0 200 300" className="w-full h-full  m ">
+    <svg viewBox="0 0 200 300" className="w-full h-full  ">
       <defs>
         <radialGradient id="cbg" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="hsl(270,45%,40%)" stopOpacity="0.15" />

@@ -93,8 +93,19 @@ export default function Footer() {
             </h4>
 
             <div className="space-y-2 text-sm text-white/70">
-              <p>tulikanewslive@gmail.com</p>
-              <p>+91 8135802073</p>
+              <a href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+  className="hover:text-white transition-colors"
+>
+  tulikanewslive@gmail.com
+</a><br></br>
+             <a
+  href="https://wa.me/918135802073"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-white transition-colors"
+>
+  +91 8135802073
+</a>
               <p>Delhi • Madhya Pradesh • Assam</p>
             </div>
 

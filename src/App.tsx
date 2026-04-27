@@ -6,6 +6,7 @@ import { TooltipProvider } from "./components/ui/tooltip";
 import Navbar from "./pages/Navbar/Navbar";
 import Footer from "./pages/Footer/Footer";
 import { useLocation } from "react-router-dom";
+import AdminPanel from './pages/AdminPanel';
 
 
 
@@ -59,6 +60,7 @@ const App = () => {
               <Route path="/consultations" element={<ConsultationsPage />} />
               <Route path="/tarot" element={<TarotPage />} />
               <Route path="/crystals" element={<CrystalsPage />} />
+              
               <Route path="/faqs" element={<FAQPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/course/:slug" element={<CourseDetail />} />
@@ -66,6 +68,9 @@ const App = () => {
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/refund" element={<RefundPage />} />
+              <Route path="/admin" element={<AdminPanel />} />
+
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
