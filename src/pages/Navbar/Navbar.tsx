@@ -133,6 +133,15 @@ export default function Navbar() {
                 >
                   {language === 'en' ? 'Join Course' : 'कोर्स जॉइन'}
                 </Button>
+                <Button
+  className="w-full gradient-bg text-white"
+  onClick={() => {
+    navigate('/admin');
+    setIsOpen(false);
+  }}
+>
+  {language === 'en' ? 'Login' : 'लॉगिन'}
+</Button>
 
                 <Button
                   variant="outline"
